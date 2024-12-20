@@ -48,9 +48,9 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color:   #A3D1D1;  /* 背景色变化 */
-    color: white;  /* 文字颜色变化 */
-    border-radius: 5px;  /* 可选，给菜单项添加圆角 */
+    background-color:   #A3D1D1;  
+    color: white;  
+    border-radius: 5px;  
 }
 
 #search-bar {
@@ -79,7 +79,7 @@ footer {
 }
 
 .highlight {
-    background-color: #ffeb3b; /* 浅黄色背景色 */
+    background-color: #ffeb3b; 
     padding: 0 2px;
     border-radius: 2px;
 }
