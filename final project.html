@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI in Organ Transplantation</title>
+    <link rel="stylesheet" href="final project.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div>
+            <img src="banner.png" alt="banner" class="banner">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#challenges">Challenges</a></li>
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#anns">ANNs</a></li>
+                <li><a href="#opom">OPOM</a></li>
+                <li><a href="#future">Future</a></li>
+            </ul>
+            <input type="text" id="search-bar" placeholder="Search...">
+        </nav>
+    </header>
+
+    <!-- Home Section -->
+    <div id="content">
+    <section id="home">
+        <h2>Introduction</h2>
+        <p>Organ transplantation is a critical medical procedure that saves lives. However, the demand for donated organs far exceeds the available supply. Compounding the issue, donated organs have a limited preservation time, making rapid matching and assessment crucial. Traditional medical systems face challenges such as insufficient sample sizes, low data processing efficiency, and unequal resource distribution. These limitations create a pressing need for innovative solutions. By leveraging Artificial Neural Networks (ANNs) and advanced risk prediction models like OPOM, we can improve graft survival predictions and enhance resource allocation and patient care.</p>
+    </section>
+
+    <!-- Challenges Section -->
+    <section id="challenges">
+        <h2>Challenges in Organ Transplantation</h2>
+        <p>AI has the potential to address many challenges in the organ transplant process. By screening and analyzing compatibility between potential donors and recipients, AI can significantly shorten decision-making time and improve matching accuracy. However, integrating AI also introduces challenges, such as ensuring the accuracy and fairness of algorithms, protecting data privacy, and addressing potential biases in AI models.</p>
+    </section>
+
+    <!-- Solutions Section -->
+    <section id="solutions">
+        <h2>AI-Powered Solutions</h2>
+        <p>AI offers transformative solutions to organ transplantation challenges:</p>
+        <ul>
+            <li><strong>Artificial Neural Networks (ANNs):</strong> Enhance transplant matching accuracy and reduce organ rejection rates.</li>
+            <li><strong>OPOM Model:</strong> Improves risk prediction and mortality outcomes.</li>
+        </ul>
+        <p><!-- Placeholder for relevant image --></p>
+    </section>
+
+    <!-- ANNs Section -->
+    <section id="anns">
+        <h2>Artificial Neural Networks (ANNs) in Transplant Matching</h2>
+        <p><strong>Goal:</strong> 
+        <ul>
+            <li>Increase overall accuracy (NN-CCR).</li>
+            <li>Reduce false positives (NN-MS).</li>
+        </ul>
+        </p>
+        <p><strong>Method:</strong> Artificial neural networks function like the human brain by analyzing vast datasets, including HLA matching, age, health conditions, and medical history. These networks assign weights to various factors, dynamically adjusting them based on historical transplant data. ANNs are organized into multiple layers:
+        </p>
+        <ul>
+            <li><strong>Input Layer:</strong> Receives data, such as the patient's demographics and health conditions.</li>
+            <li><strong>Hidden Layers:</strong> Processes data through complex calculations, learning patterns, and relationships.</li>
+            <li><strong>Output Layer:</strong> Provides the final prediction, such as graft survival likelihood or transplant success.</li>
+        </ul>
+        <img src="chart.png" alt="chart" class="chart">
+        <p><strong>Results:</strong>
+            ANNs have demonstrated superior performance in predicting graft survival (90.79% accuracy, AUC 0.81) and graft loss (71.42% accuracy, AUC 0.82) compared to traditional models. For kidney transplants, an ANN-based model achieved a C-statistic of 0.637, slightly surpassing the Kidney Donor Risk Index (KDRI) model's 0.6, enhancing personalized decision-making for kidney offers.
+        </p>
+        <p><!-- Placeholder for relevant image --></p>
+    </section>
+
+    <!-- OPOM Section -->
+    <section id="opom">
+        <h2>Risk Prediction Using OPOM</h2>
+        <p><strong>Objective:</strong> Assess whether a recipient should accept an organ based on their mortality risk.</p>
+        <p><strong>Method:</strong> OPOM, derived from the OCT algorithm, outperforms traditional models like MELD in predicting three-month mortality or waitlist removal. It uses a classification tree approach to evaluate parameters such as sex, race, cause of liver failure, demographics, cumulative wait time, blood type, average age, and BMI. The model predicts the probability of patient mortality or unsuitability for transplant within three months.</p>
+        <p><strong>Results:</strong> With a dataset of 1,618,966 observations, OPOM reduced mortality by 417.96 deaths in 6,139 liver transplantations, highlighting its effectiveness in improving patient outcomes. External validation is pending.</p>
+        <p><a href="http://www.opom.online/opom.html" target="_blank">More about OPOM</a></p>
+    </section>
+
+    <!-- Future Perspectives Section -->
+    <section id="future">
+        <h2>Future Perspectives</h2>
+        <p>AI holds transformative potential for organ transplantation, streamlining decision-making processes and enhancing efficiency. However, several challenges remain. Issues such as accuracy, algorithmic biases, lack of explainability, and ethical concerns must be addressed. Transparency, equity, and cross-disciplinary collaboration will be critical to ensuring AI’s responsible integration into medical practices. By addressing these challenges, AI can help create a more equitable and effective organ transplant system.</p>
+        <p><!-- Placeholder for relevant image --></p>
+    </section>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+        <p>Introduction to Computer Science - AI in Organ Transplantation</p>
+    </footer>
+
+    <script>
+
+// 监听回车键事件
+    document.getElementById('search-bar').addEventListener('keydown', function(event) {
+        if (event.key === 'Enter') {  // 如果按下回车键
+            let query = this.value.toLowerCase();
+            let content = document.getElementById('content');
+            
+            // 移除之前的高亮
+            removeHighlights(content);
+
+            if (query) {
+                // 根据查询的文本来高亮显示匹配的内容
+                highlightText(content, query);
+            }
+        }
+    });
+
+    // 移除所有之前的高亮
+    function removeHighlights(content) {
+        let highlighted = content.querySelectorAll('.highlight');
+        highlighted.forEach(function(element) {
+            let textNode = document.createTextNode(element.innerText);
+            element.replaceWith(textNode);
+        });
+    }
+
+    // 高亮显示匹配的文本
+    function highlightText(content, query) {
+        let paragraphs = content.getElementsByTagName('p');
+
+        Array.from(paragraphs).forEach(function(paragraph) {
+            let text = paragraph.innerHTML;
+            let regex = new RegExp(`(${query})`, 'gi');
+            
+            // 用匹配的单词包裹一个带有高亮类的元素
+            let newText = text.replace(regex, '<span class="highlight">$1</span>');
+            paragraph.innerHTML = newText;
+        });
+    }
+
+    </script>
+    });
+});
+
+</body>
+</html>
